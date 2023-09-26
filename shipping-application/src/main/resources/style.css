@@ -1,0 +1,31 @@
+* {
+    background-color: skyblue;
+}
+
+#HeaderLeft{display:inline-block;margin-right:0px; width:300px;}
+
+#HeaderRight{display:inline-block;margin-left:1300px; width:300px;}
+
+img{
+    vertical-align: middle;
+}   
+
+form{
+    display:inline-block;
+}
+
+#login{
+    font-family: 'Courier New', Courier, monospace;
+    display:flex;
+    flex-direction: column  ;
+    align-items:center;
+}
+
+#Register{
+    margin-top: 10%;
+    font-family: 'Courier New', Courier, monospace;
+    display:flex;
+    flex-direction: column  ;
+    align-items:center;
+}
+]
