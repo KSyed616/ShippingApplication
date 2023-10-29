@@ -4,6 +4,8 @@ import lombok.Data;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Data
 @Entity
 @Table(name = "ShipmentTracking")
@@ -16,14 +18,14 @@ public class ShipmentTracking {
 
     @ManyToOne
     @JoinColumn(name = "ShipmentID")
-    private Shipment shipment;
+    private Shipments shipment;
 
     @Column(name = "Status")
     private String status;
 
     @Column(name = "UpdateTime")
-    private Timestamp updateTime;
+    private LocalDateTime updateTime;
 
     @Column(name = "ETA")
-    private Timestamp eta;
+    private LocalDateTime eta;
 }

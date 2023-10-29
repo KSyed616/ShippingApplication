@@ -1,13 +1,9 @@
 package com.cps714.objects.users;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 import lombok.Data;
 
 import jakarta.persistence.*;
+import org.jetbrains.annotations.NotNull;
 
 @Data
 @Entity
@@ -15,6 +11,7 @@ import jakarta.persistence.*;
 public class Customer {
 
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CustomerID")
     private Integer customerID;

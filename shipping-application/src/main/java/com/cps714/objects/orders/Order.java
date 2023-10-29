@@ -1,6 +1,5 @@
 package com.cps714.objects.orders;
 
-import com.cps714.objects.products.Product;
 import com.cps714.objects.users.Customer;
 import lombok.Data;
 import org.jetbrains.annotations.NotNull;
@@ -22,12 +21,8 @@ public class Order {
     @Column(name = "order_date")
     private String orderDate;
 
-    /*@ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;*/
+    @JoinColumn(name = "CustomerID")
+    private Customer customer;
 
 }
