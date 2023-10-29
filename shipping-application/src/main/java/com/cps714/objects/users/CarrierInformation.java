@@ -4,10 +4,12 @@ import lombok.Data;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Data
 @Entity
 @Table(name = "CarrierInformation")
-public class Carrier {
+public class CarrierInformation{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
