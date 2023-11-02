@@ -1,0 +1,117 @@
+<script type='text/javascript' language ="javascript">
+    var Username;
+    var CPassword;
+    var NPassword;
+    var Saddress;
+    var Baddress;
+    var email;
+    var phonenumber;
+    var accounttype;
+
+    window.onload = function() { //Need to be populated with current information from database, for now random values have been included.
+        //Grab elements
+        Username = document.getElementById('username');
+        Cpassword = document.getElementById('Cpassword');
+        Npassword = document.getElementById('Npassword');
+        Saddress = document.getElementById('Saddress');
+        Baddress = document.getElementById('Baddress');
+        Email = document.getElementById('Email');
+        phonenumber = document.getElementById('Phonenumber');
+        accounttype = document.getElementById('Accounttype');
+
+        //Assign data to elements for the account page
+        Username.value = 'Hai';
+        Cpassword.value = '';
+        Npassword.value = '';
+        Saddress.value = 'House';
+        Baddress.value = 'House';
+        Email.value = 'Hai@gmail.com';
+        phonenumber.value = '123-456-7890';
+        accounttype.value = 'private'; //Must be in lower case.
+
+        //Assign data to elements for header
+        var list = document.getElementById('accountoptions')
+        var option = document.createElement('option');
+        option.selected = true;
+        option.hidden = true;
+        option.text = 'Welcome ' + Username.value;
+        list.add(option);
+    }
+
+    function SubmitChanges(){
+        Username = document.getElementById('username').value;
+        Cpassword = document.getElementById('Cpassword').value;
+        Npassword = document.getElementById('Npassword').value;
+
+        if (Cpassword == 'Yes') { //Check if password matches database password
+            Cpassword = Npassword; //Change the password to be saved
+        }
+
+        Saddress = document.getElementById('Saddress').value;
+        Baddress = document.getElementById('Baddress').value;
+        Email = document.getElementById('Email').value;
+        phonenumber = document.getElementById('Phonenumber').value;
+        accounttype = document.getElementById('Accounttype').value;
+    }
+
+    //Header page redirects
+    function RedirectHome(){ //Change to Home page
+        location.href = 'index.html';
+    }
+
+    function RedirectShipment(){ //Change to shipment page
+        location.href = 'index.html';
+    }
+
+    function RedirectAbout(){//Change to about page
+        location.href = 'index.html';
+    }
+
+    function RedirectAccountOptions(){
+        var list = document.getElementById('accountoptions')
+        option = list.value;
+        if (option == 'status'){ //Redirect to account page
+            location.href = 'index.html';
+        }
+        else if (option == 'logout'){ //Redirect to login page.
+            location.href = 'index.html';
+        }
+    }
+
+</script>
+<!DOCTYPE = HTML>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href ="accountpage.css"/>
+</head>
+<body>
+    <div class="Header">
+        <aside class="Header-Left">
+            <img src="Logo.png">
+        </aside>
+        <aside class="Header-Right">
+            <button class="Header-button" onclick = "RedirectHome()" type = "submit"><img src="Cloud_homepage.PNG"></button>
+            <button class="Header-button" onclick = "RedirectShipment()" type = "submit"><img src="Cloud_shipment.PNG"></button>
+            <button class="Header-button" onclick = "RedirectAbout()" type = "submit"><img src="Cloud_about.PNG"></button>
+            <select name ="accountoptions" onclick="RedirectAccountOptions()" id="accountoptions"><option value="status">Change Account Status</option><option value="logout">Logout</option></select>
+        </aside>
+    </div>
+    <div class="Mainbody">
+        <div class="Box">
+            <div><H1>Account information</H1></div>
+            <div class="Info">
+                <div class="Button-label"><button>Username:</button><input type="text" id="username"></input></div>
+                <div class="Button-label"><button>Current Password:</button><input type="text" id="Cpassword"></input></div>
+                <div class="Button-label"><button>New Password</button><input type="text" id="Npassword"></input></div>
+                <div class="Button-label"><button>Shipping Address</button><input type="text" id="Saddress"></input></div>
+                <div class="Button-label"><button>Billing Address</button><input type="text" id="Baddress"></input></div>
+                <div class="Button-label"><button>Email</button><input type="text" id="Email"></input></div>
+                <div class="Button-label"><button>Phone Number</button><input type="text" id="Phonenumber"></input></div>
+                <div class="Button-label"><button>Account Type</button><select name ="accounttype" id="Accounttype"><option value="business">Business</option><option value="private">Private</option></select></div>
+                <div class="Button-submit"><button onclick="SubmitChanges()"type= "submit">Save Changes</button></div>
+            </div>
+        </div>
+    </div>
+</body>
