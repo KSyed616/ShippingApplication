@@ -1,0 +1,112 @@
+.Header{
+    display: flex;
+    flex-flow: row wrap;
+    background-color: C9B9E2;
+    min-height: 5vh;
+}
+
+.Header > * {
+    flex: 1 50%;
+  }
+  
+.aside{
+    flex: 1 auto;
+}
+.Header-Left{
+    display: flex;
+    justify-content: flex-start;
+    order: 1;
+}
+
+.Header-Right{
+    display:flex;
+    justify-content: flex-end;
+    order: 2;
+}
+
+.Header-Right select{
+    text-align: center;
+    background: none;
+    border: none;
+}
+
+.Header-Right select:hover{
+    outline-style: solid;
+    outline-width: 1px;
+}
+
+.Header-button{
+    margin-left: 4em;
+    margin-right: 2em;
+    padding: 0;
+    border: none;
+    background: none;
+}
+.Header-button:hover{
+    outline-style: solid;
+    outline-width: 1px;
+    transition: 1s;
+}
+
+.Header-Right img{
+    min-height: 100%;
+}
+.Header-Left img{
+    margin: left;
+    min-height: 100%;
+}
+
+.Mainbody{
+    background-color: rgba(166,59,250,0.17);
+    height: 90vh;
+    width: auto;
+}
+
+.Box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Box H1{
+    width: 100vw;
+    font-size: 50px;
+    text-align: center;
+    order: 3;
+}
+
+.Info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2em;
+    order: 4;
+}
+
+.Button-label button{
+    display: inline-block;
+    background: none;
+    border: none;
+    font-size: 28px;
+    text-align: left;
+    width: 250px;
+    margin-right: 2em;
+}
+.Button-submit button{
+    text-align: center;
+    margin-top: 1em;
+    margin-left: 4em;
+    height: 50px;
+    font-size: 28px;
+    width: 300px;
+}
+.Info input{
+    height: 3vh;
+    width: 10vw;
+}
+
+.Info select{
+    width: 10vw;
+    height: 3vh;
+}
