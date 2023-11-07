@@ -1,60 +1,30 @@
-<!DOCTYPE = HTML>
-<script src="main.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href ="style.css"/>
-    <title>Website Development</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login to Workable</title>
+  <link rel="stylesheet" href="login-style.css">
 </head>
+
 <body>
-<form name="Title" action="">
-    <div id="HeaderLeft">
-        <img src="plane.png" width = "50", height ="50">
-        Shipment Processing Website
+  <div class="header">
+    <div class="nav">
+      <button type="submit" onclick="RedirectSignup()">Sign Up</button>
     </div>
-    <div id="HeaderRight">
-        <input type="submit" value="Signup"></input>
-        <input type="submit" value="Login"></input>
-    </div>
-</form>
+  </div>
+  <div class="login-container">
+    <h2>Login to ShippingApp</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit" onclick="RedirectLanding()">Login</button>
+    </form>
+    <p onclick="SendPassword()">Forgot your password? <a href="#">Click here</a></p>
+  </div>
 
-<div id="login">
-    Please Login with your username and password.
-    <div>
-        <label>Username:</label>
-        <input type="text" id="username"></input>
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" id="password"></input>
-    </div>
-    <br>
-    <input onclick = "login()" type="submit" value="Login"></input>
-</div>
-
-<div id="Register">
-    Welcome! Please enter a username, a password and an email address to get started.
-    <div>
-        <label>
-            <div>
-                <label>Username:</label>
-                <input type="text" id="loginUsername"></input>
-            </div>
-            <div>
-                <label>Password:</label>
-                <input type="password" id="loginPassword"></input>
-            </div>
-            <div>
-                <label>&nbsp;&nbsp;&nbsp;Email:</label>
-                <input type="text" id="email"></input>
-            </div>
-            <br>
-            <input onclick="registerAcc()" type="submit" value="Register"></input>
-        </label>
-    </div>
-
-
-
-</div>
+  <script src="login-js.js"></script>
 </body>
+
+</html>
