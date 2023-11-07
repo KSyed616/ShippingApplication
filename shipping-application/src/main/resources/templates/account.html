@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link th:href="@{/css/accountpage-style.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="Header">
+    <aside class="Header-Left">
+        <img th:src="@{/static/Logo.png}" alt="Logo" />
+    </aside>
+    <aside class="Header-Right">
+        <button class="Header-button" th:onclick="RedirectHome()" type="submit">
+            <img th:src="@{/static/Cloud_homepage.PNG}" alt="Home" />
+        </button>
+        <button class="Header-button" th:onclick="RedirectShipment()" type="submit">
+            <img th:src="@{/static/Cloud_shipment.PNG}" alt="Shipment" />
+        </button>
+        <button class="Header-button" th:onclick="RedirectAbout()" type="submit">
+            <img th:src="@{/static/Cloud_about.PNG}" alt="About" />
+        </button>
+        <select name="accountoptions" th:onclick="RedirectAccountOptions()" id="accountoptions">
+            <option value="status">Change Account Status</option>
+            <option value="logout">Logout</option>
+        </select>
+    </aside>
+</div>
+<div class="Mainbody">
+    <div class="Box">
+        <div><h1>Account information</h1></div>
+        <div class="Info">
+            <div class="Button-label"><button>Username:</button><input type="text" id="username" />
+            </div>
+            <div class="Button-label"><button>Current Password:</button><input type="text" id="Cpassword" />
+            </div>
+            <div class="Button-label"><button>New Password</button><input type="text" id="Npassword" />
+            </div>
+            <div class="Button-label"><button>Shipping Address</button><input type="text" id="Saddress" />
+            </div>
+            <div class="Button-label"><button>Billing Address</button><input type="text" id="Baddress" />
+            </div>
+            <div class="Button-label"><button>Email</button><input type="text" id="Email" />
+            </div>
+            <div class="Button-label"><button>Phone Number</button><input type="text" id="Phonenumber" />
+            </div>
+            <div class="Button-label"><button>Account Type</button>
+                <select name="accounttype" id="Accounttype">
+                    <option value="business">Business</option>
+                    <option value="private">Private</option>
+                </select>
+            </div>
+            <div class="Button-submit"><button th:onclick="SubmitChanges()" type="submit">Save Changes</button></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/js/account-js.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login to Workable</title>
+  <link th:href="@{/css/login-style.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="header">
+  <div class="nav">
+    <button type="submit" th:onclick="RedirectSignup()">Sign Up</button>
+  </div>
+</div>
+<div class="login-container">
+  <h2>Login to ShippingApp</h2>
+  <form id="loginForm" th:action="@{/submit}" th:method="post">
+    <input type="email" id="email" th:placeholder="Email" required>
+    <input type="password" id="password" th:placeholder="Password" required>
+    <button type="submit" th:onclick="RedirectLanding()">Login</button>
+  </form>
+  <p th:onclick="SendPassword()">Forgot your password? <a href="#">Click here</a></p>
+</div>
+
+<script type="text/javascript" th:src="@{/js/login-js.js}"></script>
+</body>
+
+</html>
