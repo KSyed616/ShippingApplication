@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -22,10 +22,10 @@
     <h1>Welcome to X Shipping</h1>
     <section class="signup-section">
       <form id="signupForm" class="signup-form">
-        <input type="text" id="firstName" th:placeholder="First name">
-        <input type="text" id="lastName" th:placeholder="Last name">
-        <input type="email" id="email" th:placeholder="Email">
-        <input type="password" id="password" th:placeholder="Password">
+        <input type="text" id="firstName" placeholder="First name">
+        <input type="text" id="lastName" placeholder="Last name">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
         <div class="subscribe-checkbox">
           <input type="checkbox" id="subscribe">
           <label for="subscribe">Yes, I'd like to receive email marketing content</label>
@@ -47,7 +47,6 @@
     <p id="errorText">Error message goes here</p>
   </div>
 </div>
-<script type="text/javascript" th:src="@{/js/register-js.js"></script>
 </body>
 
 </html>

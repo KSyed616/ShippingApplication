@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -10,21 +10,21 @@
 
 <body>
 <div class="header">
-  <div class="nav">
-    <button type="submit" th:onclick="RedirectSignup()">Sign Up</button>
-  </div>
+  <form th:action="@{/register}" th:method="get">
+    <div class="nav" >
+      <button type="submit">Sign Up</button>
+    </div>
+  </form>
 </div>
 <div class="login-container">
   <h2>Login to ShippingApp</h2>
-  <form id="loginForm" th:action="@{/submit}" th:method="post">
-    <input type="email" id="email" th:placeholder="Email" required>
-    <input type="password" id="password" th:placeholder="Password" required>
+  <form id="loginForm" th:object="${login}" th:action="@{/submit}" th:method="post">
+    <input type="email" id="email" field="*{email}" placeholder="Email" required>
+    <input type="password" id="password" field="*{password}" placeholder="Password" required>
     <button type="submit" th:onclick="RedirectLanding()">Login</button>
   </form>
   <p th:onclick="SendPassword()">Forgot your password? <a href="#">Click here</a></p>
 </div>
-
-<script type="text/javascript" th:src="@{/js/login-js.js}"></script>
 </body>
 
 </html>
