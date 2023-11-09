@@ -30,33 +30,47 @@
 <div class="Mainbody">
     <div class="Box">
         <div><h1>Account information</h1></div>
-        <div class="Info">
-            <div class="Button-label"><button>Username:</button><input type="text" id="username" />
-            </div>
-            <div class="Button-label"><button>Current Password:</button><input type="text" id="Cpassword" />
-            </div>
-            <div class="Button-label"><button>New Password</button><input type="text" id="Npassword" />
-            </div>
-            <div class="Button-label"><button>Shipping Address</button><input type="text" id="Saddress" />
-            </div>
-            <div class="Button-label"><button>Billing Address</button><input type="text" id="Baddress" />
-            </div>
-            <div class="Button-label"><button>Email</button><input type="text" id="Email" />
-            </div>
-            <div class="Button-label"><button>Phone Number</button><input type="text" id="Phonenumber" />
-            </div>
-            <div class="Button-label"><button>Account Type</button>
-                <select name="accounttype" id="Accounttype">
-                    <option value="business">Business</option>
-                    <option value="private">Private</option>
-                </select>
-            </div>
-            <div class="Button-submit"><button th:onclick="SubmitChanges()" type="submit">Save Changes</button></div>
-        </div>
+        <table class="Info">
+            <tr th:each="user :${user}">
+                <th class="Button-label"><button>Email:</button></th>
+                <td><input type="text" id="username" th:placeholder="${user.email}" /></td>
+            </tr>
+            <tr th:each="user :${user}">
+                <th class="Button-label"><button>Current Password:</button></th>
+                <td><input type="text" id="Cpassword" th:placeholder="${user.password}" /></td>
+            </tr>
+            <tr th:each="user :${user}">
+                <th class="Button-label"><button>New Password</button></th>
+                <td><input type="text" id="Npassword"/></td>
+            </tr>
+            <tr th:each="user :${user}">
+                <th class="Button-label"><button>Shipping Address</button></th>
+                <td><input type="text" id="Saddress" th:placeholder="${user.shippingAddress}" /></td>
+            </tr>
+            <tr th:each="user :${user}">
+                <th class="Button-label"><button>Billing Address</button></th>
+                <td><input type="text" id="Baddress" th:placeholder="${user.billingAddress}" /></td>
+            </tr>
+            <tr th:each="user :${user}">
+                <th class="Button-label"><button>Phone Number</button></th>
+                <td><input type="text" id="Phonenumber" th:placeholder="${user.phone}" /></td>
+            </tr>
+            <tr th:each="user :${user}">
+                <th class="Button-label"><button>Account Type</button></th>
+                <td>
+                    <select name="accounttype" id="Accounttype" th:placeholder="${user.isBusinessAccount}">
+                        <option value="business">Business</option>
+                        <option value="private">Private</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="button-submit"><button class="Button-submit" type="submit">Save Changes</button></td>
+            </tr>
+        </table>
+
     </div>
 </div>
-
-<script type="text/javascript" th:src="@{/js/account-js.js}"></script>
 
 </body>
 </html>

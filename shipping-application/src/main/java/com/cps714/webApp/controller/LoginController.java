@@ -2,9 +2,11 @@ package com.cps714.webApp.controller;
 
 
 import com.cps714.objects.users.Account;
+import com.cps714.repository.CustomerRepository;
 import com.cps714.webApp.models.SessionUser;
 import com.cps714.webApp.service.LoginService;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
@@ -15,7 +17,11 @@ import org.springframework.ui.Model;
 @SessionAttributes({"sessionUser"})
 public class LoginController {
 
+    @Autowired
     private LoginService loginService;
+
+    @Autowired
+    CustomerRepository customerRepository;
 
     @ModelAttribute("sessionUser")
     public SessionUser getSessionUser(){
@@ -36,9 +42,9 @@ public class LoginController {
     @PostMapping("/submit")
     public String loginSubmit(Model model, Account account){
         System.out.println(account.toString());
+        SessionUser user = loginService.doLogin(account);
 
         try{
-            SessionUser user = loginService.doLogin(account);
 
             if(user == null){
                 model.addAttribute("error", "Login failed");
@@ -48,6 +54,8 @@ public class LoginController {
         }catch (Exception e){
 
         }
-        return "login";
+
+        model.addAttribute("sessionUser",user);
+        return "redirect:account";
     }
 }

@@ -3,11 +3,13 @@ package com.cps714.webApp.service;
 import com.cps714.objects.users.Account;
 import com.cps714.objects.users.Customer;
 import com.cps714.webApp.models.SessionUser;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cps714.repository.CustomerRepository;
 
 @Service
+@Data   
 public class LoginService {
 
     @Autowired
