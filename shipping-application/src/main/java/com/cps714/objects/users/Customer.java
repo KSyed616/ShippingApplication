@@ -11,7 +11,6 @@ import org.jetbrains.annotations.NotNull;
 public class Customer {
 
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CustomerID")
     private Integer customerID;
@@ -24,6 +23,9 @@ public class Customer {
 
     @Column(name = "Email")
     private String email;
+
+    @Column(name = "Password")
+    private String password;
 
     @Column(name = "Phone")
     private String phone;

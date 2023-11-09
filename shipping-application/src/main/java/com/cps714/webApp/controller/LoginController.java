@@ -5,13 +5,14 @@ import com.cps714.objects.users.Login;
 import com.cps714.webApp.models.SessionUser;
 import com.cps714.webApp.service.LoginService;
 import lombok.Data;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
 @Data
 @Controller
-@RequestMapping("/index")
+//@RequestMapping("/index")
 @SessionAttributes({"sessionUser"})
 public class LoginController {
 
@@ -22,10 +23,16 @@ public class LoginController {
         return new SessionUser();
     }
 
-    @GetMapping()
+    @GetMapping("/")
     public String get(Model model) {
         return "index";
     }
+
+    @GetMapping("/index")
+    public String login(Model model) {
+        return "index";
+    }
+
 
     @PostMapping("/submit")
     public String loginSubmit(Model model, Login login){
@@ -42,6 +49,6 @@ public class LoginController {
         }catch (Exception e){
 
         }
-        return "submit";
+        return "login";
     }
 }

@@ -11,7 +11,7 @@
 <body>
 <div class="container">
   <header class="header">
-    <img th:src="@{/style/Logo.png}" alt="Workable Shipping Logo" class="logo">
+    <img th:src="@{/Logo.png}" alt="Workable Shipping Logo" class="logo">
     <nav class="nav">
       <a href="#">Track Package</a>
       <a href="#">About Us</a>
@@ -21,16 +21,23 @@
   <main class="main-content">
     <h1>Welcome to X Shipping</h1>
     <section class="signup-section">
-      <form id="signupForm" class="signup-form">
-        <input type="text" id="firstName" placeholder="First name">
-        <input type="text" id="lastName" placeholder="Last name">
-        <input type="email" id="email" placeholder="Email">
-        <input type="password" id="password" placeholder="Password">
+      <form id="signupForm" class="signup-form" th:action="@{/signup}" th:object="${customer}" method="post">
+        <input type="text" id="firstname" field="*{firstName}" placeholder="First Name" name="firstName">
+        <input type="text" id="lastname" field="*{lastName}" placeholder="Last Name" name="lastName">
+        <input type="email" id="email" field="*{email}" placeholder="Email" name="email">
+        <input type="password" id="password" field="*{password}" placeholder="Password" name="password">
+        <input type="tel" id="phonenumber" field="*{phone}" placeholder="Phone Number" name="phone">
+        <input type="text" id="Baddress" field="*{billingAddress}" placeholder="Billing Address" name="billingAddress">
+        <input type="text" id="Saddress" field="*{shippingAddress}" placeholder="Shipping Address" name="shippingAddress">
+        <div class="business-checkbox">
+          <input type="checkbox" id="accounttype" field="*{isBusinessAccount}" name="isBusinessAccount">
+          <label for="accounttype">Yes this is a business account</label>
+        </div>
         <div class="subscribe-checkbox">
-          <input type="checkbox" id="subscribe">
+          <input type="checkbox" id="subscribe" name="subscribeEmails">
           <label for="subscribe">Yes, I'd like to receive email marketing content</label>
         </div>
-        <button type="submit" th:onclick="RedirectLogin()">SIGN UP</button>
+        <button type="submit">SIGN UP</button>
         <p><a href="#">Our Privacy Policy</a></p>
         <p>Or sign up with</p>
         <button type="button">LINKEDIN</button>
