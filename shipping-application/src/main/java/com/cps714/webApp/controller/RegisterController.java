@@ -1,6 +1,8 @@
 package com.cps714.webApp.controller;
 
+import com.cps714.objects.users.Account;
 import com.cps714.objects.users.Customer;
+import com.cps714.repository.AccountRepository;
 import com.cps714.repository.CustomerRepository;
 import com.cps714.webApp.models.SessionUser;
 import lombok.Data;
@@ -18,20 +20,30 @@ public class RegisterController {
     @Autowired
     CustomerRepository customerRepository;
 
+    @Autowired
+    AccountRepository accountRepository;
+
     @ModelAttribute("sessionUser")
     public SessionUser getSessionUser(){
         return new SessionUser();
     }
 
     @GetMapping("/register")
-    public String get(Model model) {
+    public String register(Model model) {
         return "register";
     }
 
     @PostMapping("/signup")
     public String signup(Model model, Customer customer){
-        System.out.println(customer.toString());
+        //Saving the customer registration information in to the database
         customerRepository.save(customer);
+
+        //Creating and storing account for Customer
+        Account account = new Account();
+        account.setEmail(customer.getEmail());
+        account.setPassword(customer.getPassword());
+        accountRepository.save(account);
+
         return "account";
     }
 }

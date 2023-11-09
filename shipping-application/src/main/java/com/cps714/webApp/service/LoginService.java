@@ -1,7 +1,7 @@
 package com.cps714.webApp.service;
 
+import com.cps714.objects.users.Account;
 import com.cps714.objects.users.Customer;
-import com.cps714.objects.users.Login;
 import com.cps714.webApp.models.SessionUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,9 +14,9 @@ public class LoginService {
     private CustomerRepository repository;
 
     //Confirm the validity of login credentials
-    public boolean checkLogin(Login login){
+    public boolean checkLogin(Account account){
         try{
-            Customer customer = repository.findByEmail(login.getEmail());
+            Customer customer = repository.findByEmail(account.getEmail());
             if(customer == null){
                 return false;
             }
@@ -27,9 +27,9 @@ public class LoginService {
         }
     }
 
-    public SessionUser doLogin(Login login){
+    public SessionUser doLogin(Account account){
         try{
-            Customer customer = repository.findByEmail(login.getEmail());
+            Customer customer = repository.findByEmail(account.getEmail());
             if(customer == null){
                 return null;
             }

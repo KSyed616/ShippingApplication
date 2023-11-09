@@ -9,17 +9,17 @@
 <body>
 <div class="Header">
     <aside class="Header-Left">
-        <img th:src="@{/static/Logo.png}" alt="Logo" />
+        <img th:src="@{/images/Logo.png}" alt="Logo" />
     </aside>
     <aside class="Header-Right">
         <button class="Header-button" th:onclick="RedirectHome()" type="submit">
-            <img th:src="@{/static/Cloud_homepage.PNG}" alt="Home" />
+            <img th:src="@{/images/Cloud_homepage.PNG}" alt="Home" />
         </button>
         <button class="Header-button" th:onclick="RedirectShipment()" type="submit">
-            <img th:src="@{/static/Cloud_shipment.PNG}" alt="Shipment" />
+            <img th:src="@{/images/Cloud_shipment.PNG}" alt="Shipment" />
         </button>
         <button class="Header-button" th:onclick="RedirectAbout()" type="submit">
-            <img th:src="@{/static/Cloud_about.PNG}" alt="About" />
+            <img th:src="@{/images/Cloud_about.PNG}" alt="About" />
         </button>
         <select name="accountoptions" th:onclick="RedirectAccountOptions()" id="accountoptions">
             <option value="status">Change Account Status</option>
