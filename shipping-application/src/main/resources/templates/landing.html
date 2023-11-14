@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Application</title>
+    <link th:href="@{/css/landing-style.css}" rel="stylesheet" />
+</head>
+<body>
+<script th:src="@{/static/js/shared-js.js}" type="text/javascript"></script>
+<div class="header">
+    <div>
+        <img th:src="@{/static/Logo.png}" alt="Logo" />
+    </div>
+    <div>
+        <button class="header-button" th:onclick="RedirectHome()" type="submit">
+            <img th:src="@{/static/Cloud_homepage.PNG}" alt="Home" />
+        </button>
+        <button class="header-button" th:onclick="RedirectShipment()" type="submit">
+            <img th:src="@{/static/Cloud_shipment.PNG}" alt="Shipment" />
+        </button>
+        <button class="header-button" th:onclick="RedirectAbout()" type="submit">
+            <img th:src="@{/static/Cloud_about.PNG}" alt="About" />
+        </button>
+        <select name="accountoptions" th:onchange="RedirectAccountOptions()" id="accountoptions">
+            <option value="status">Change Account Status</option>
+            <option value="logout">Logout</option>
+        </select>
+    </div>
+</div>
+<div class="content">
+    Landing Page
+</div>
+</body>
+</html>
