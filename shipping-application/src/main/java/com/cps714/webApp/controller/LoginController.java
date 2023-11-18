@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 
 @Data
 @Controller
-//@RequestMapping("/index")
 @SessionAttributes({"sessionUser"})
 public class LoginController {
 
@@ -56,6 +55,6 @@ public class LoginController {
         }
 
         model.addAttribute("sessionUser",user);
-        return "redirect:account";
+        return "redirect:landing";
     }
 }

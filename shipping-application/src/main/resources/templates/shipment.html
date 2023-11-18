@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipment</title>
+  <link th:href="@{/css/shipment-style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<!-- Main title for all pages -->
+<h1>Shipment</h1>
+
+<!-- Navigation for all subtitles -->
+<button th:onclick="|showSection('shipmentAddressSection')|">Shipment Address</button>
+<button th:onclick="|showSection('createShipmentSection')|">Create Shipment</button>
+<button th:onclick="|showSection('reviewShipmentSection')|">Review Shipment</button>
+
+<!-- Shipment Address Section -->
+<div id="shipmentAddressSection" class="container">
+  <h2>Shipment Address</h2>
+
+  <!-- Button to show the form -->
+  <button th:onclick="|showForm()|">New Shipping Address</button>
+
+  <!-- The form where users will input their data -->
+  <div id="shippingAddressForm">
+    <form th:action="@{/addAddress}" th:object="${address}" th:onsubmit="|return addAddress(event)|">
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" required><br>
+
+      <!-- Other form fields... -->
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <!-- The section where the address card will be displayed -->
+  <div id="addressCardsSection">
+    <!-- Address cards will be added here -->
+  </div>
+</div>
+
+<!-- Create Shipment Section -->
+<div id="createShipmentSection" class="container">
+  <h2>Create Shipment</h2>
+  <h3>Ship to</h3>
+  <select id="addressSelect" th:each="address, addressIndex : ${addresses}">
+    <option th:value="${addressIndex}" th:text="${address.name + ', ' + address.street1 + ', ' + address.city + ', ' + address.provinces}"></option>
+  </select>
+
+  <!-- Other form fields... -->
+
+  <button th:onclick="|createShipment()|">Create shipment</button>
+</div>
+
+<!-- Review Shipment Section -->
+<div id="reviewShipmentSection" class="container" >
+  <h2>Review Shipment</h2>
+  <div class="filter-container">
+    <select id="shipmentFilter">
+      <option value="current">current shipment</option>
+      <option value="finished">finish shipment</option>
+    </select>
+    <button th:onclick="|applyFilter()|">Apply</button>
+  </div>
+
+  <table id="shipmentsTable">
+    <thead>
+    <tr>
+      <th>Order</th>
+      <th>name</th>
+      <th>Shipping method</th>
+      <th>date</th>
+      <th>Tracking</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Shipments will be dynamically inserted here -->
+    <tr th:each="shipment : ${shipments}">
+      <td th:text="${shipment.order}"></td>
+      <td th:text="${shipment.name}"></td>
+      <td th:text="${shipment.shippingMethod}"></td>
+      <td th:text="${shipment.date}"></td>
+      <td th:text="${shipment.tracking}"></td>
+      <td th:text="${shipment.status}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
