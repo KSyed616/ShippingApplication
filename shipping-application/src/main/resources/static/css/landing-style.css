@@ -6,13 +6,57 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(198,186,223	);
-    padding: 10px 20px;
+    background-color: rgb(4, 91, 178);
+    padding: 0 20px;
 }
 
 .header-button {
-    padding: 0;
-    border: 0;
+    padding: 10px;
+    background: none;
+    width: 100px;
+    height: 80px;
+    font: 16px Verdana, sans-serif;
+    border: none;
+    color: white;
+}
+
+.header-button:hover {
+    background-color: rgb(18, 107, 196);
+}
+
+#accountoptions {
+    margin-left: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(18, 107, 196);
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+}
+
+.dropdown-content a {
+    color: white;
+    font: 14px Verdana, sans-serif;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgb(26, 119, 213);;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 .logo {
