@@ -11,11 +11,6 @@
 <!-- Main title for all pages -->
 <h1>Shipment</h1>
 
-<!-- Navigation for all subtitles -->
-<button th:onclick="|showSection('shipmentAddressSection')|">Shipment Address</button>
-<button th:onclick="|showSection('createShipmentSection')|">Create Shipment</button>
-<button th:onclick="|showSection('reviewShipmentSection')|">Review Shipment</button>
-
 <!-- Shipment Address Section -->
 <div id="shipmentAddressSection" class="container">
   <h2>Shipment Address</h2>
@@ -29,7 +24,20 @@
       <label for="name">Name *</label>
       <input type="text" id="name" name="name" required><br>
 
-      <!-- Other form fields... -->
+      <label for="name">Pickup Address *</label>
+      <input type="text" id="pickupAdd" required><br>
+
+      <label for="name">Delivery Address *</label>
+      <input type="text" id="deliveryAdd" required><br>
+
+      <label for="name">Shipping Method *</label>
+      <div class="col-75">
+        <select id="country" name="country">
+          <option value="standard">Standard</option>
+          <option value="expedited">Expedited</option>
+          <option value="express">Express</option>
+        </select>
+      </div>
 
       <input type="submit" value="Submit">
     </form>
@@ -40,30 +48,6 @@
     <!-- Address cards will be added here -->
   </div>
 </div>
-
-<!-- Create Shipment Section -->
-<div id="createShipmentSection" class="container">
-  <h2>Create Shipment</h2>
-  <h3>Ship to</h3>
-  <select id="addressSelect" th:each="address, addressIndex : ${addresses}">
-    <option th:value="${addressIndex}" th:text="${address.name + ', ' + address.street1 + ', ' + address.city + ', ' + address.provinces}"></option>
-  </select>
-
-  <!-- Other form fields... -->
-
-  <button th:onclick="|createShipment()|">Create shipment</button>
-</div>
-
-<!-- Review Shipment Section -->
-<div id="reviewShipmentSection" class="container" >
-  <h2>Review Shipment</h2>
-  <div class="filter-container">
-    <select id="shipmentFilter">
-      <option value="current">current shipment</option>
-      <option value="finished">finish shipment</option>
-    </select>
-    <button th:onclick="|applyFilter()|">Apply</button>
-  </div>
 
   <table id="shipmentsTable">
     <thead>

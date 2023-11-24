@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipping Application</title>
-    <link href="../static/css/landing-style.css" rel="stylesheet" />
+    <link th:href="@{/css/landing-style.css}" rel="stylesheet" />
 </head>
 <body>
 <div class="header">
     <div>
-        <img src="../static/images/Logo.png" alt="Logo" />
+        <img th:src="@{/images/Logo.png}" alt="Logo" />
     </div>
     <div class="header">
-        <form action="../static/shipment" method="post">
+        <form th:action="@{/shipment}" th:method="post">
             <button class="header-button"  type="submit">Shipment</button>
         </form>
 
-        <form action="../static/about" method="post">
+        <form th:action="@{/about}" th:method="post">
             <button class="header-button" type="submit">About</button>
         </form>
 
-        <form action="../static/account" method="post">
+        <form th:action="@{/account}" th:method="post">
             <div class="dropdown">
                 <button class="header-button" id="dropdown-button">Username</button>
                 <div class="dropdown-content">
@@ -30,9 +30,6 @@
             </div>
         </form>
     </div>
-</div>
-<div class="content">
-    Landing Page
 </div>
 </body>
 </html>
