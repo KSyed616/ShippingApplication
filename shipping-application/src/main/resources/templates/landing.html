@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipping Application</title>
-    <link th:href="@{/css/landing-style.css}" rel="stylesheet" />
+    <link href="../static/css/shared.css" rel="stylesheet" />
+    <link href="../static/css/landing-style.css" rel="stylesheet" />
 </head>
 <body>
 <div class="header">
     <div>
-        <img th:src="@{/images/Logo.png}" alt="Logo" />
+        <img src="../static/images/Logo.png" alt="Logo" />
     </div>
     <div class="header">
         <form th:action="@{/shipment}" th:method="post">
@@ -30,6 +31,9 @@
             </div>
         </form>
     </div>
+</div>
+<div class="content">
+    Landing Page
 </div>
 </body>
 </html>

@@ -4,11 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shipment</title>
-  <link th:href="@{/css/shipment-style.css}" rel="stylesheet" />
+  <link href="../static/css/shared.css" rel="stylesheet" />
+  <link href="../static/css/shipment-style.css" rel="stylesheet" />
 </head>
 <body>
+  <div class="header">
+    <div>
+        <img src="../static/images/Logo.png" alt="Logo" />
+    </div>
+    <div class="header">
+        <form action="../static/shipment" method="post">
+            <button class="header-button"  type="submit">Shipment</button>
+        </form>
 
+        <form action="../static/about" method="post">
+            <button class="header-button" type="submit">About</button>
+        </form>
+
+        <form action="../static/account" method="post">
+            <div class="dropdown">
+                <button class="header-button" id="dropdown-button">Username</button>
+                <div class="dropdown-content">
+                    <a href="#">Account Options</a>
+                    <a href="#">Sign Out</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <!-- Main title for all pages -->
+<div class="content">
 <h1>Shipment</h1>
 
 <!-- Shipment Address Section -->
@@ -72,6 +97,7 @@
     </tr>
     </tbody>
   </table>
+</div>
 </div>
 
 </body>
