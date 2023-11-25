@@ -9,18 +9,18 @@
 <body>
 <div class="header">
     <div>
-        <img src="../images/Logo.png" alt="Logo" />
+        <img th:src="@{/images/Logo.png}" alt="Logo" />
     </div>
     <div class="header">
-        <form action="../static/shipment" method="post">
+        <form th:action="@{/shipment}" th:method="post">
             <button class="header-button"  type="submit">Shipment</button>
         </form>
 
-        <form action="../static/about" method="post">
+        <form th:action="@{/about}" th:method="post">
             <button class="header-button" type="submit">About</button>
         </form>
 
-        <form action="../static/account" method="post">
+        <form th:action="@{/account}" th:method="post">
             <div class="dropdown">
                 <button class="header-button" id="dropdown-button">Username</button>
                 <div class="dropdown-content">
@@ -33,7 +33,7 @@
 </div>
 <div class="Mainbody">
     <div class="Box">
-        <div><h1>Account information</h1></div>
+        <div><h1 class="title">Account Information</h1></div>
         <table class="Info">
             <tr th:each="user :${user}">
                 <th class="Button-label"><button>Email:</button></th>

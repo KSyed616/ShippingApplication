@@ -68,9 +68,14 @@ body {
 }
 
 .Mainbody{
-    background-color: rgba(166,59,250,0.17);
+    /* background-color: rgba(166,59,250,0.17); */
     height: 90vh;
     width: auto;
+}
+
+.title {
+    font-family: Verdana, sans-serif;
+    font-weight: normal;
 }
 
 .Box{
@@ -87,37 +92,38 @@ body {
     order: 3;
 }
 
-.Info{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 2em;
-    order: 4;
-}
-
-.Button-label button{
+.Button-label button {
     display: inline-block;
     background: none;
     border: none;
-    font-size: 28px;
+    font-size: 18px;
     text-align: left;
-    width: 250px;
+    width: 200px;
     margin-right: 2em;
 }
-.Button-submit button{
+.Button-submit {
     text-align: center;
     margin-top: 1em;
-    margin-left: 4em;
     height: 50px;
-    font-size: 28px;
-    width: 300px;
-}
-.Info input{
-    height: 3vh;
-    width: 10vw;
+    width: 200px;
+    font: 16px Verdana, sans-serif;
+    background-color: rgb(18, 107, 196);
+    color: white;
+    border: none;
+    border-radius: 4px;
 }
 
-.Info select{
-    width: 10vw;
+.Button-submit:hover {
+    background-color: rgb(26, 119, 213);
+}
+
+.Button-submit:active {
+    background-color: rgb(40, 134, 229);
+}
+
+.Info input,select {
     height: 3vh;
+    width: 30vw;
+    font: 16px Verdana, sans-serif;
+    margin: 4px;
 }

@@ -6,17 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shipping Dashboard</title>
   <link th:href="@{/css/rti-styles.css}" rel="stylesheet"/>
+  <link th:href="@{/css/shared.css}" rel="stylesheet"/>
+
 </head>
 
 <body>
 <div class="header">
-  <div class="nav">
-    <!-- You can add a link to the registration page here if needed -->
+  <div>
+    <img th:src="@{/images/Logo.png}" alt="Logo" />
   </div>
-</div>
-<div class="container">
-  <h1>Shipping Dashboard</h1>
-  <div id="shipmentStatus"></div>
+  <div class="header">
+    <form th:action="@{/shipment}" th:method="post">
+      <button class="header-button"  type="submit">Shipment</button>
+    </form>
+
+    <form th:action="@{/about}" th:method="post">
+      <button class="header-button" type="submit">About</button>
+    </form>
+
+    <form th:action="@{/account}" th:method="post">
+      <div class="dropdown">
+        <button class="header-button" id="dropdown-button">Username</button>
+        <div class="dropdown-content">
+          <a href="#">Account Options</a>
+          <a href="#">Sign Out</a>
+        </div>
+      </div>
+    </form>
+    </div>
+
+  <div class="container">
+    <h1>Shipping Dashboard</h1>
+    <div id="shipmentStatus"></div>
+  </div>
 </div>
 </body>
 
