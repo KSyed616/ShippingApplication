@@ -10,28 +10,27 @@
 </head>
 <body>
 <div class="header">
-    <div>
-        <img th:src="@{/images/Logo.png}" alt="Logo" />
-    </div>
-    <div class="header">
-        <form th:action="@{/shipment}" th:method="post">
-            <button class="header-button"  type="submit">Shipment</button>
-        </form>
+    <form th:action="@{/shipment}" th:method="post">
+        <button class="header-button"  type="submit">Shipment</button>
+    </form>
 
-        <form th:action="@{/about}" th:method="post">
-            <button class="header-button" type="submit">About</button>
-        </form>
+    <form th:action="@{/about}" th:method="post">
+        <button class="header-button" type="submit">About</button>
+    </form>
 
-        <form th:action="@{/account}" th:method="post">
-            <div class="dropdown">
-                <button class="header-button" id="dropdown-button">Username</button>
-                <div class="dropdown-content">
-                    <a href="#">Account Options</a>
-                    <a href="#">Sign Out</a>
-                </div>
+    <form th:action="@{/account}" th:method="post">
+        <div class="dropdown">
+            <button class="header-button" id="dropdown-button">Username</button>
+            <div class="dropdown-content">
+                <form th:action="@{/index}" th:method="post">
+                    <button class="header-button" type="submit">Account Options</button>
+                </form>
+                <form th:action="@{/login}" th:method="post">
+                    <button class="header-button" type="submit">Sign Out</button>
+                </form>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 <section class="intro">
     <h1 class="name">X Shipping</h1>
