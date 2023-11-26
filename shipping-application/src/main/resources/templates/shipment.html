@@ -15,24 +15,19 @@
 <div id="shipmentAddressSection" class="container">
   <h2>Shipment Address</h2>
 
-  <!-- Button to show the form -->
-  <button th:onclick="|showForm()|">New Shipping Address</button>
-
   <!-- The form where users will input their data -->
   <div id="shippingAddressForm">
-    <form th:action="@{/addAddress}" th:object="${address}" th:onsubmit="|return addAddress(event)|">
-      <label for="name">Name *</label>
-      <input type="text" id="name" name="name" required><br>
+    <form th:action="@{/createShipment}" th:object="${shipments}" method="post">
 
-      <label for="name">Pickup Address *</label>
-      <input type="text" id="pickupAdd" required><br>
+      <label for="pickupAddy">Pickup Address *</label>
+      <input type="text" name="pickupLocation" id="pickupAddy" field="*{pickupLocation}" placeholder="Enter Pickup Address" required><br>
 
-      <label for="name">Delivery Address *</label>
-      <input type="text" id="deliveryAdd" required><br>
+      <label for="deliveryAddy">Delivery Address *</label>
+      <input type="text" name ="deliveryLocation" id="deliveryAddy" field="*{deliveryLocation}" placeholder="Enter Delivery Address" required><br>
 
-      <label for="name">Shipping Method *</label>
+      <label for="shippingMethod">Shipping Method *</label>
       <div class="col-75">
-        <select id="country" name="country">
+        <select name="shippingMethod" id="shippingMethod" field="*{isshippingMethod}">
           <option value="standard">Standard</option>
           <option value="expedited">Expedited</option>
           <option value="express">Express</option>
@@ -42,12 +37,6 @@
       <input type="submit" value="Submit">
     </form>
   </div>
-
-  <!-- The section where the address card will be displayed -->
-  <div id="addressCardsSection">
-    <!-- Address cards will be added here -->
-  </div>
-</div>
 
   <table id="shipmentsTable">
     <thead>
@@ -63,13 +52,13 @@
     <tbody>
     <!-- Shipments will be dynamically inserted here -->
     <tr th:each="shipment : ${shipments}">
-      <td th:text="${shipment.order}"></td>
-      <td th:text="${shipment.name}"></td>
+      <td th:text="${shipment.shipmentID}"></td>
+      <td th:text="${shipment.customer}"></td>
       <td th:text="${shipment.shippingMethod}"></td>
-      <td th:text="${shipment.date}"></td>
-      <td th:text="${shipment.tracking}"></td>
+      <td th:text="${shipment.pickupDate}"></td>
       <td th:text="${shipment.status}"></td>
     </tr>
+
     </tbody>
   </table>
 </div>
