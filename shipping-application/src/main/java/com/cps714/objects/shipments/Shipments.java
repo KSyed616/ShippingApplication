@@ -6,8 +6,11 @@ import com.cps714.objects.users.Customer;
 import lombok.Data;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "Shipments")
 public class Shipments {
@@ -38,4 +41,8 @@ public class Shipments {
 
     @Column(name = "Status")
     private String status;
+
+    @Column(name = "TrackingID")
+    Integer shipmentTracking;
+
 }

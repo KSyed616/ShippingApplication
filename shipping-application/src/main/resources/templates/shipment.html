@@ -5,11 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shipment</title>
   <link th:href="@{/css/shipment-style.css}" rel="stylesheet" />
+  <link th:href="@{/css/shared.css}" rel="stylesheet" />
 </head>
 <body>
 
-<!-- Main title for all pages -->
-<h1>Shipment</h1>
+<div class="header">
+  <div>
+    <img th:src="@{/images/Logo.png}" alt="Logo" />
+  </div>
+  <div class="header">
+    <form th:action="@{/shipment}" th:method="post">
+      <button class="header-button"  type="submit">Shipment</button>
+    </form>
+
+    <form th:action="@{/about}" th:method="post">
+      <button class="header-button" type="submit">About</button>
+    </form>
+
+    <form th:action="@{/account}" th:method="post">
+      <div class="dropdown">
+        <button class="header-button" id="dropdown-button">Username</button>
+        <div class="dropdown-content">
+          <form th:action="@{/account}" th:method="post">
+            <button class="header-button" type="submit">Account Options</button>
+          </form>
+          <form th:action="@{/index}" th:method="post">
+            <button class="header-button" type="submit">Sign Out</button>
+          </form>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
 <!-- Shipment Address Section -->
 <div id="shipmentAddressSection" class="container">
@@ -42,22 +69,33 @@
     <thead>
     <tr>
       <th>Order</th>
-      <th>name</th>
+      <th>Customer Name</th>
       <th>Shipping method</th>
+      <th>Pickup Address</th>
+      <th>Delivery Address</th>
       <th>date</th>
       <th>Tracking</th>
       <th>Status</th>
+      <th>Process</th>
     </tr>
     </thead>
     <tbody>
     <!-- Shipments will be dynamically inserted here -->
-    <tr th:each="shipment : ${shipments}">
-      <td th:text="${shipment.shipmentID}"></td>
-      <td th:text="${shipment.customer}"></td>
-      <td th:text="${shipment.shippingMethod}"></td>
-      <td th:text="${shipment.pickupDate}"></td>
-      <td th:text="${shipment.status}"></td>
-    </tr>
+      <tr th:each="shipment : ${shipments}">
+        <td name="shipmentID" th:text="${shipment.shipmentID}"></td>
+        <td th:text="${shipment.customer.firstName}"></td>
+        <td name="shippingMethod" th:text="${shipment.shippingMethod}"></td>
+        <td name="pickupLocation" th:text="${shipment.pickupLocation}"></td>
+        <td name="deliveryLocation" th:text="${shipment.deliveryLocation}"></td>
+        <td name="pickupDate" th:text="${shipment.pickupDate}"></td>
+        <td name="shipmentTracking" th:text="${shipment.shipmentTracking}"></td>
+        <td name="status" th:text="${shipment.status}"></td>
+        <td>
+          <form action="#" th:action="@{/processShipment/} + ${shipment.shipmentID}" method="get">
+            <button th:id="'table_entry_childs_button' + ${shipment.shipmentID}" type="submit"><img style="display:block;" width="25%" height="25%" th:src="@{/images/shipment.png}" alt="Logo" /></button>
+          </form>
+        </td>
+      </tr>
 
     </tbody>
   </table>

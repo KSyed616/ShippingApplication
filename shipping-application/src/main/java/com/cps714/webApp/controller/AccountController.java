@@ -27,7 +27,6 @@ public class AccountController {
 
     @GetMapping("/account")
     public String register(Model model, SessionUser user) {
-
         model.addAttribute("user", customerRepository.findByEmail(user.getEmail()));
         model.addAttribute("sessionUser", user);
         return "account";

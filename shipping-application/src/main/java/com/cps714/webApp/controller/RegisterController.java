@@ -52,6 +52,6 @@ public class RegisterController {
         SessionUser user = registerService.doRegister(customer);
         model.addAttribute("sessionUser", user);
 
-        return "redirect:account";
+        return "redirect:landing";
     }
 }

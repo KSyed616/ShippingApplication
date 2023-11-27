@@ -10,49 +10,28 @@
 
 <body>
 <div class="container">
-  <header class="header">
-    <img th:src="@{images/Logo.png}" alt="Workable Shipping Logo" class="logo">
-    <nav class="nav">
-      <a href="#">Track Package</a>
-      <a href="#">About Us</a>
-      <button>TRY IT FOR FREE</button>
-    </nav>
-  </header>
+  <div class="header">
+    <div>
+      <img th:src="@{images/Logo.png}" alt="logo">
+    </div>
+    <div class="header">
+      <button class="header-button" type="submit">Log In</button>
+    </div>
+  </div>
   <main class="main-content">
-    <h1>Welcome to X Shipping</h1>
     <section class="signup-section">
+      <h1>Welcome to our Shipping Application</h1>
       <form id="signupForm" class="signup-form" th:action="@{/signup}" th:object="${customer}" method="post">
         <input type="text" id="firstname" field="*{firstName}" placeholder="First Name" name="firstName">
         <input type="text" id="lastname" field="*{lastName}" placeholder="Last Name" name="lastName">
         <input type="email" id="email" field="*{email}" placeholder="Email" name="email">
         <input type="password" id="password" field="*{password}" placeholder="Password" name="password">
-        <input type="tel" id="phonenumber" field="*{phone}" placeholder="Phone Number" name="phone">
-        <input type="text" id="Baddress" field="*{billingAddress}" placeholder="Billing Address" name="billingAddress">
-        <input type="text" id="Saddress" field="*{shippingAddress}" placeholder="Shipping Address" name="shippingAddress">
-        <div class="business-checkbox">
-          <input type="checkbox" id="accounttype" field="*{isBusinessAccount}" name="isBusinessAccount">
-          <label for="accounttype">Yes this is a business account</label>
-        </div>
-        <div class="subscribe-checkbox">
-          <input type="checkbox" id="subscribe" name="subscribeEmails">
-          <label for="subscribe">Yes, I'd like to receive email marketing content</label>
-        </div>
-        <button type="submit">SIGN UP</button>
-        <p><a href="#">Our Privacy Policy</a></p>
-        <p>Or sign up with</p>
-        <button type="button">LINKEDIN</button>
-        <button type="button">GOOGLE</button>
+        <input type="tel" id="phonenumber" field="*{phone}" placeholder="Phone Number" name="phone" pattern="[0-9]{10}">
+        <button type="submit">Sign Up</button>
+        <p><a href="#">About Us</a></p>
       </form>
     </section>
   </main>
-</div>
-
-<!-- Error Message Modal -->
-<div id="errorModal" style="display:none;">
-  <div>
-    <span id="closeModal" style="cursor:pointer;">&times;</span>
-    <p id="errorText">Error message goes here</p>
-  </div>
 </div>
 </body>
 

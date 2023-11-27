@@ -4,7 +4,7 @@ import lombok.Data;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -24,8 +24,8 @@ public class ShipmentTracking {
     private String status;
 
     @Column(name = "UpdateTime")
-    private LocalDateTime updateTime;
+    private LocalDate updateTime;
 
     @Column(name = "ETA")
-    private LocalDateTime eta;
+    private LocalDate eta;
 }

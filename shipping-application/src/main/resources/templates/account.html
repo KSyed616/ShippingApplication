@@ -58,15 +58,6 @@
                 <th class="Button-label"><button>Phone Number</button></th>
                 <td><input type="text" id="Phonenumber" th:placeholder="${user.phone}" /></td>
             </tr>
-            <tr th:each="user :${user}">
-                <th class="Button-label"><button>Account Type</button></th>
-                <td>
-                    <select name="accounttype" id="Accounttype" th:placeholder="${user.isBusinessAccount}">
-                        <option value="business">Business</option>
-                        <option value="private">Private</option>
-                    </select>
-                </td>
-            </tr>
             <tr>
                 <td colspan="2" class="button-submit"><button class="Button-submit" type="submit">Save Changes</button></td>
             </tr>

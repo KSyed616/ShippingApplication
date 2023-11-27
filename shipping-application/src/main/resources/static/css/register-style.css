@@ -20,13 +20,39 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--header-color);
-    padding: 10px 20px;
-}
+    background-color: rgb(4, 91, 178);
+    padding: 0 20px;
+  }
 
-.logo {
-    height: 50px;
-}
+  .header-button {
+    padding: 10px;
+    background: none;
+    width: 100px;
+    height: 80px;
+    font: 16px Verdana, sans-serif;
+    border: none;
+    color: white;
+  }
+
+  .button {
+    padding: 10px;
+    background: none;
+    width: 100px;
+    height: 80px;
+    font: 16px Verdana, sans-serif;
+    border: none;
+    color: white;
+  }
+
+  .header-button:hover {
+    background-color: rgb(18, 107, 196);
+  }
+
+
+  .logo {
+    height: 10px;
+  }
+
 
 .nav a {
     color: var(--text-color);
@@ -41,7 +67,7 @@ body {
 
 button {
     padding: 10px 20px;
-    background-color: var(--primary-color);
+    background-color: rgb(4, 91, 178);
     color: var(--text-color);
     border: none;
     border-radius: 5px;
@@ -55,29 +81,32 @@ button:hover {
 
 .main-content {
     display: flex;
-    justify-content: space-between;
-    padding: 50px;
-    flex-wrap: wrap;
+    justify-content: center; /* Aligns horizontally center */
+    align-items: center; /* Aligns vertically center */
+    height: 80vh; /* Takes full viewport height */
+    flex-direction: column; /* Stacks items vertically */
+    text-align: center; /* Centers text */
 }
-
-.testimonial-section {
-    width: 40%;
-}
-
 
 .signup-section {
-    width: 50%;
-    background-color: var(--text-color);
-    padding: 20px;
-    box-shadow: var(--box-shadow);
+    width: 100%; /* Makes the section full width */
+    max-width: 400px; /* Maximum width of the form */
 }
 
-.signup-form input {
-    width: calc(100% - 30px);
-    padding: 15px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.signup-form input,
+.signup-form button {
+    width: 100%; /* Makes the inputs and button take full width of the form */
+    padding: 10px; /* Padding inside the inputs and button */
+    margin-bottom: 10px; /* Space between the inputs and button */
+    box-sizing: border-box; /* Ensures padding doesn't add to the width */
+}
+
+.signup-form button {
+    cursor: pointer; /* Changes the cursor to a pointer when hovered over the button */
+    background-color: #0056b3; /* Example button color, change as needed */
+    color: white; /* Text color for the button */
+    border: none; /* Removes the border */
+    border-radius: 5px; /* Rounds the corners of the button */
 }
 
 /* Responsive Design */

@@ -10,19 +10,21 @@
 
 <body>
 <div class="header">
+  <div>
+    <img th:src="@{/images/Logo.png}" alt="Logo" />
+  </div>
   <form th:action="@{/register}" th:method="get">
-    <div class="nav" >
-      <button type="submit">Sign Up</button>
+    <div class="header" >
+      <button class="header-button" type="submit">Sign Up</button>
     </div>
   </form>
 </div>
-<div class="account-container">
+<div class="login-container">
   <h2>Login to ShippingApp</h2>
   <form id="loginForm" th:object="${account}" th:action="@{/submit}" th:method="post">
-    <input type="email" id="email" name="email" placeholder="Email" required>
-    <input type="password" id="password" name="password" placeholder="Password" required>
-    <button type="submit" th:onclick="RedirectLanding()">Login</button>
-    <p th:onclick="SendPassword()">Forgot your password? <a href="#">Click here</a></p>
+    <input type="email" id="email" name="email" placeholder="Email" required  style="width: 100%; box-sizing: border-box;">
+    <input type="password" id="password" name="password" placeholder="Password" required style="width: 100%; box-sizing: border-box;">
+    <button type="submit">Login</button>
   </form>
 </div>
 </body>

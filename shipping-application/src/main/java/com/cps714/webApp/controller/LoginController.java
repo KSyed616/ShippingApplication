@@ -47,7 +47,7 @@ public class LoginController {
 
             if(user == null){
                 model.addAttribute("error", "Login failed");
-                return "login";
+                return "index";
             }
 
         }catch (Exception e){
