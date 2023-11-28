@@ -127,3 +127,15 @@ body {
     font: 16px Verdana, sans-serif;
     margin: 4px;
 }
+
+.Info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    order: 4;
+    margin: 0 auto;
+}
+
+.Info th{
+    padding: 10px;
+}

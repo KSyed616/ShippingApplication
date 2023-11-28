@@ -13,9 +13,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+//Controller for Register page
 @Data
 @Controller
 //@RequestMapping("/register")
+//Defining the session user that is used in all files
 @SessionAttributes({"sessionUser"})
 public class RegisterController {
 
@@ -25,6 +27,7 @@ public class RegisterController {
     @Autowired
     AccountRepository accountRepository;
 
+    //Method to get sessionUser
     @ModelAttribute("sessionUser")
     public SessionUser getSessionUser(){
         return new SessionUser();
@@ -33,11 +36,13 @@ public class RegisterController {
     @Autowired
     private RegisterService registerService;
 
+    //Mapping Register page using thymeleaf syntax
     @GetMapping("/register")
     public String register(Model model) {
         return "register";
     }
 
+    //Method to invoke signup logic
     @PostMapping("/signup")
     public String signup(Model model, Customer customer){
         //Saving the customer registration information in to the database
@@ -47,8 +52,10 @@ public class RegisterController {
         Account account = new Account();
         account.setEmail(customer.getEmail());
         account.setPassword(customer.getPassword());
+        account.setCustomer(customer);
         accountRepository.save(account);
 
+        //Defining the session user using customer registration information
         SessionUser user = registerService.doRegister(customer);
         model.addAttribute("sessionUser", user);
 

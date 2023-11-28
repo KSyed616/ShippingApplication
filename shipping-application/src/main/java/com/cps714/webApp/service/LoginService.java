@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cps714.repository.CustomerRepository;
 
+//Service file for Login
 @Service
 @Data   
 public class LoginService {
@@ -21,6 +22,8 @@ public class LoginService {
             Customer customer = repository.findByEmail(account.getEmail());
             if(customer == null){
                 return false;
+            }else if(!customer.getPassword().equals(account.getPassword())){
+                return false;
             }
             return true;
         }catch(Exception e){
@@ -29,6 +32,7 @@ public class LoginService {
         }
     }
 
+    //Logs the user in
     public SessionUser doLogin(Account account){
         try{
             Customer customer = repository.findByEmail(account.getEmail());
@@ -36,6 +40,7 @@ public class LoginService {
                 return null;
             }
             else{
+                //Creating sessionUser that stays constant throughout the whole session
                 SessionUser user = new SessionUser();
                 user.setEmail(customer.getEmail());
                 user.setFirstName(customer.getFirstName());

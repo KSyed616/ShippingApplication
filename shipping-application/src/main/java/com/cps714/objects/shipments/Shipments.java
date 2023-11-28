@@ -9,6 +9,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+//Entity file for Shipments
+
 @Getter
 @Setter
 @Entity

@@ -5,10 +5,12 @@ import com.cps714.webApp.models.SessionUser;
 import lombok.Data;
 import org.springframework.stereotype.Service;
 
+//Service page for Register page
 @Service
 @Data
 public class RegisterService {
 
+    //Method that completes registration and defines the session user
     public SessionUser doRegister(Customer customer) {
 
         SessionUser user = new SessionUser();

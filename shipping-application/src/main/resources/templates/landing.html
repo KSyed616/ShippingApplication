@@ -13,11 +13,11 @@
         <img th:src="@{/images/Logo.png}" alt="Logo" />
     </div>
     <div class="header">
-        <form th:action="@{/shipment}" th:method="post">
+        <form th:action="@{/shipment}" th:method="get">
             <button class="header-button"  type="submit">Shipment</button>
         </form>
 
-        <form th:action="@{/about}" th:method="post">
+        <form th:action="@{/about}" th:method="get">
             <button class="header-button" type="submit">About</button>
         </form>
 
@@ -25,10 +25,10 @@
             <div class="dropdown">
                 <button class="header-button" id="dropdown-button">Username</button>
                 <div class="dropdown-content">
-                    <form th:action="@{/account}" th:method="post">
+                    <form th:action="@{/account}" th:method="get">
                         <button class="header-button" type="submit">Account Options</button>
                     </form>
-                    <form th:action="@{/index}" th:method="post">
+                    <form th:action="@{/index}" th:method="get">
                         <button class="header-button" type="submit">Sign Out</button>
                     </form>
                 </div>

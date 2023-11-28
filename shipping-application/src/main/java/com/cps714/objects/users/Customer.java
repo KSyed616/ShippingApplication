@@ -5,6 +5,7 @@ import lombok.Data;
 import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
 
+//Entity file for Customers table
 @Data
 @Entity
 @Table(name = "Customers")

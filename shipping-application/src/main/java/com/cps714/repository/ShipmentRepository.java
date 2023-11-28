@@ -21,4 +21,9 @@ public interface ShipmentRepository extends JpaRepository<Shipments, Integer> {
     @Transactional
     @Query(nativeQuery = true, value = "UPDATE shipments SET TrackingID = ? WHERE ShipmentID = ?")
     void setTrackingIdByShipmentId(Integer trackingID, Integer shipmentID);
+
+    @Modifying(clearAutomatically = true)
+    @Transactional
+    @Query(nativeQuery = true, value = "UPDATE shipments SET Status = ? WHERE ShipmentID = ?")
+    void setStatusByShipmentId(String status, Integer shipmentID);
 }

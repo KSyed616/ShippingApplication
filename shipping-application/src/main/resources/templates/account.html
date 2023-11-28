@@ -38,23 +38,31 @@
 <div class="Mainbody">
     <div class="Box">
         <div><h1 class="title">Account Information</h1>
-            <form th:action="@{/changeAccount}" th:object="${customer}" th:method="post">
-                <table class="Info">
+            <form class="Info" th:action="@{/changeAccount}" th:object="${customer}" th:method="post">
+                <table>
                     <tr th:each="user :${user}">
-                        <th class="Button-label"><button>Email:</button></th>
-                        <td><input type="text" id="username" th:placeholder="${user.email}" name="email" /></td>
+                        <th class="Button-label"><button>Current Email:</button></th>
+                        <td th:text="${user.email}"></td>
+                    </tr>
+                    <tr th:each="user :${user}">
+                        <th class="Button-label"><button>New Email:</button></th>
+                        <td><input type="text" id="nusername" name="email" /></td>
                     </tr>
                     <tr th:each="user :${user}">
                         <th class="Button-label"><button>Current Password:</button></th>
-                        <td><input type="text" id="Cpassword" th:placeholder="${user.password}" /></td>
+                        <td th:text="${user.password}"></td>
                     </tr>
                     <tr th:each="user :${user}">
                         <th class="Button-label"><button>New Password</button></th>
                         <td><input type="text" id="Npassword" name="password"/></td>
                     </tr>
                     <tr th:each="user :${user}">
-                        <th class="Button-label"><button>Phone Number</button></th>
-                        <td><input type="text" id="Phonenumber" name="phone" th:placeholder="${user.phone}" /></td>
+                        <th class="Button-label"><button>Current Phone Number</button></th>
+                        <td th:text="${user.phone}"></td>
+                    </tr>
+                    <tr th:each="user :${user}">
+                        <th class="Button-label"><button>New Phone Number</button></th>
+                        <td><input type="text" id="NPhonenumber" name="phone"/></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="button-submit"><button class="Button-submit" type="submit">Save Changes</button></td>

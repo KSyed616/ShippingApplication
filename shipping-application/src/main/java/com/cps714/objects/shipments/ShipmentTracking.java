@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
+//Shipment Tracking entity
 @Data
 @Entity
 @Table(name = "ShipmentTracking")

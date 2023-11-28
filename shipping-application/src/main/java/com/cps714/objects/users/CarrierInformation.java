@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
+//Entity file for CarrierInformation (Unused)
 @Data
 @Entity
 @Table(name = "CarrierInformation")

@@ -4,6 +4,8 @@ import lombok.Data;
 
 import jakarta.persistence.*;
 
+
+//Entity file for Admins (Unused)
 @Data
 @Entity
 @Table(name = "Admins")
