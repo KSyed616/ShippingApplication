@@ -8,61 +8,60 @@
 </head>
 <body>
 <div class="header">
-    <form th:action="@{/shipment}" th:method="post">
-        <button class="header-button"  type="submit">Shipment</button>
-    </form>
+    <div>
+        <img th:src="@{/images/Logo.png}" alt="Logo" />
+    </div>
 
-    <form th:action="@{/about}" th:method="post">
-        <button class="header-button" type="submit">About</button>
-    </form>
+    <div class="header">
+        <form th:action="@{/shipment}" th:method="post">
+            <button class="header-button"  type="submit">Shipment</button>
+        </form>
+        <form th:action="@{/about}" th:method="post">
+            <button class="header-button" type="submit">About</button>
+        </form>
 
-    <form th:action="@{/account}" th:method="post">
-        <div class="dropdown">
-            <button class="header-button" id="dropdown-button">Username</button>
-            <div class="dropdown-content">
-                <form th:action="@{/index}" th:method="post">
-                    <button class="header-button" type="submit">Account Options</button>
-                </form>
-                <form th:action="@{/login}" th:method="post">
-                    <button class="header-button" type="submit">Sign Out</button>
-                </form>
+        <form th:action="@{/account}" th:method="post">
+            <div class="dropdown">
+                <button class="header-button" id="dropdown-button">Username</button>
+                <div class="dropdown-content">
+                    <form th:action="@{/account}" th:method="get">
+                        <button class="header-button" type="submit">Account Options</button>
+                    </form>
+                    <form th:action="@{/index}" th:method="get">
+                        <button class="header-button" type="submit">Sign Out</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 <div class="Mainbody">
     <div class="Box">
-        <div><h1 class="title">Account Information</h1></div>
-        <table class="Info">
-            <tr th:each="user :${user}">
-                <th class="Button-label"><button>Email:</button></th>
-                <td><input type="text" id="username" th:placeholder="${user.email}" /></td>
-            </tr>
-            <tr th:each="user :${user}">
-                <th class="Button-label"><button>Current Password:</button></th>
-                <td><input type="text" id="Cpassword" th:placeholder="${user.password}" /></td>
-            </tr>
-            <tr th:each="user :${user}">
-                <th class="Button-label"><button>New Password</button></th>
-                <td><input type="text" id="Npassword"/></td>
-            </tr>
-            <tr th:each="user :${user}">
-                <th class="Button-label"><button>Shipping Address</button></th>
-                <td><input type="text" id="Saddress" th:placeholder="${user.shippingAddress}" /></td>
-            </tr>
-            <tr th:each="user :${user}">
-                <th class="Button-label"><button>Billing Address</button></th>
-                <td><input type="text" id="Baddress" th:placeholder="${user.billingAddress}" /></td>
-            </tr>
-            <tr th:each="user :${user}">
-                <th class="Button-label"><button>Phone Number</button></th>
-                <td><input type="text" id="Phonenumber" th:placeholder="${user.phone}" /></td>
-            </tr>
-            <tr>
-                <td colspan="2" class="button-submit"><button class="Button-submit" type="submit">Save Changes</button></td>
-            </tr>
-        </table>
-
+        <div><h1 class="title">Account Information</h1>
+            <form th:action="@{/changeAccount}" th:object="${customer}" th:method="post">
+                <table class="Info">
+                    <tr th:each="user :${user}">
+                        <th class="Button-label"><button>Email:</button></th>
+                        <td><input type="text" id="username" th:placeholder="${user.email}" name="email" /></td>
+                    </tr>
+                    <tr th:each="user :${user}">
+                        <th class="Button-label"><button>Current Password:</button></th>
+                        <td><input type="text" id="Cpassword" th:placeholder="${user.password}" /></td>
+                    </tr>
+                    <tr th:each="user :${user}">
+                        <th class="Button-label"><button>New Password</button></th>
+                        <td><input type="text" id="Npassword" name="password"/></td>
+                    </tr>
+                    <tr th:each="user :${user}">
+                        <th class="Button-label"><button>Phone Number</button></th>
+                        <td><input type="text" id="Phonenumber" name="phone" th:placeholder="${user.phone}" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="button-submit"><button class="Button-submit" type="submit">Save Changes</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
 </div>
 

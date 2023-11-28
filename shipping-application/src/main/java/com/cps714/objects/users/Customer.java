@@ -30,12 +30,6 @@ public class Customer {
     @Column(name = "Phone")
     private String phone;
 
-    @Column(name = "IsBusinessAccount")
-    private Boolean isBusinessAccount;
-
-    @Column(name = "BusinessName")
-    private String businessName;
-
     @Column(name = "BillingAddress")
     private String billingAddress;
 

@@ -7,10 +7,7 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 @Data
 @Controller
@@ -29,6 +26,15 @@ public class AccountController {
     public String register(Model model, SessionUser user) {
         model.addAttribute("user", customerRepository.findByEmail(user.getEmail()));
         model.addAttribute("sessionUser", user);
+        return "account";
+    }
+
+    @PostMapping("/changeAccount")
+    public String changeAccount(Model model, Customer customer, SessionUser user) {
+
+        Customer customer2 = customerRepository.findByEmail(user.getEmail());
+        customerRepository.setCustomerInformationByCustomerID(customer.getEmail(), customer.getPhone(), customer.getPassword(), customer2.getCustomerID());
+        model.addAttribute("user", customerRepository.findByEmail(user.getEmail()));
         return "account";
     }
 
